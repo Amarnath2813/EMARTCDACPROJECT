@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -35,6 +36,14 @@ public class Customer {
  	public void setCustomerId(int i) {
  		this.Customer_id=i;
  	}
+ 	
+ 	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "Customer_id")
+	private List<Invoice> invoiceList;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "Customer_id")
+	private List<Order> orderList;
 
 	public String getName() {
 		return name;

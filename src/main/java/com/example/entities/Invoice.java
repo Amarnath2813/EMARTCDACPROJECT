@@ -1,21 +1,28 @@
 package com.example.entities;
 
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 
 
 @Entity
 public class Invoice {
 	private int invid;
 	private int inv_dt;
-	private int custid;
+	private int Customer_id;
 	private double tax;
 	private int total_amt;
 	private double shipping_charges;
 	private double payable_amt;
+	private List<Invoice_dtl> InvoiceDtList;
+
 
 	public int getInv_dt() {
 		return inv_dt;
@@ -32,12 +39,22 @@ public class Invoice {
 	public void setInvid(int invid) {
 		this.invid = invid;
 	}
+	
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="invoiceID")
+	public List<Invoice_dtl> getInvoiceDtList() {
+		return InvoiceDtList;
+	}
+	public void setInvoiceDtList(List<Invoice_dtl> invoiceDtList) {
+		InvoiceDtList = invoiceDtList;
+	}
 
 	public int getCustid() {
-		return custid;
+		return Customer_id;
 	}
-	public void setCustid(int custid) {
-		this.custid = custid;
+	public void setCustid(int Customer_id) {
+		this.Customer_id = Customer_id;
 	}
 	public double getTax() {
 		return tax;

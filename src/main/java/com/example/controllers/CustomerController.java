@@ -24,10 +24,12 @@ import com.example.services.CustomerService;
 @RequestMapping("/customer")
 
 public class CustomerController {
+	
 
     @Autowired
     private CustomerService cservice;
 
+   
     @GetMapping()
     public ResponseEntity<?> getCustomers() {
         return new ResponseEntity<>(cservice.getCustomers(),HttpStatus.OK);

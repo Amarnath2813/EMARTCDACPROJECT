@@ -1,11 +1,16 @@
 package com.example.entities;
 
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -38,23 +43,9 @@ public class ProductMaster {
     @Column(name = "remarks")
     private String remarks;
     
-//    @ManyToOne
-//    @JoinColumn(name = "Catmaster_id", referencedColumnName = "Catmaster_id", insertable = false, updatable = false)
-//    private CategoryMaster categoryMaster;
 
     
-    public ProductMaster() {
-    }
-
-    public ProductMaster(int catMasterId, String productShortDesc, String productLongDesc, double MRP_Price, double cardHoldersPrice, int points_2b_Redeem, String remarks) {
-        this.catMasterId = catMasterId;
-        this.productShortDesc = productShortDesc;
-        this.productLongDesc = productLongDesc;
-        this.MRP_Price = MRP_Price;
-        this.cardHoldersPrice = cardHoldersPrice;
-        this.points_2b_Redeem = points_2b_Redeem;
-        this.remarks = remarks;
-    }
+ 
 
     public int getProductId() {
         return productId;
@@ -120,19 +111,21 @@ public class ProductMaster {
         this.remarks = remarks;
     }
 
-//    public CategoryMaster getCategoryMaster() {
-//        return categoryMaster;
-//    }
+    @OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "productId")
+	private List<ConfigMaster> ConfigMaster;
+    
+    @OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "productId")
+	private List<Invoice_dtl> invoiceDetailsList;
+	
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="productId")
+	private List<Cart> cartList;
 
-//    public void setCategoryMaster(CategoryMaster categoryMaster) {
-//        this.categoryMaster = categoryMaster;
-//    }
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "productId")
+	private List<ProductDetailMaster> productdetaillist;
+
 }
-
-
-
-
-
-
-
-

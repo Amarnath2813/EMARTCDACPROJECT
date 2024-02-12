@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Invoice_dtl {
 	private int invdtl_id;
 	private int invid;
-	private int prodid;
+	private int productId;
 	private double mrp;
 	private double card_holder_price;
 	private double points_redeemed;
@@ -32,10 +32,10 @@ public class Invoice_dtl {
 		this.invid = invid;
 	}
 	public int getProdid() {
-		return prodid;
+		return productId;
 	}
-	public void setProdid(int prodid) {
-		this.prodid = prodid;
+	public void setProdid(int productId) {
+		this.productId = productId;
 	}
 	public double getMrp() {
 		return mrp;
