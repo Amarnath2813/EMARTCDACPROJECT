@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oL4bZzRN6qo1Q5eMQjFkmi/20oPIg7LoeakuGtj43WvVNeGmU1bzTzbdmN8zN+eoq+Ew+oHVtCdHoAUpk3yIjA==",
+  "dgSpecHash": "rHpNCJYcCIyBRqbAwdrrThr0EpueMgB11zLWmYqbsN1M9w19hgLA1RHBRrLxhuuHEzayqP5qVdL3g9GkEAZOaw==",
   "success": true,
-  "projectFilePath": "E:\\EMARTFULLFLEDGEDCOMMAND\\MYDONETFULLANDFINAL\\EMART_DAC\\EMART_DAC.csproj",
+  "projectFilePath": "E:\\EMARTCDACPROJECT\\DOTNET\\EMART_DAC_DOTNET\\EMART_DAC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amarnath\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Amarnath\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
@@ -75,6 +75,7 @@
     "C:\\Users\\Amarnath\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
     "C:\\Users\\Amarnath\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\Amarnath\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\Amarnath\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.4\\microsoft.visualstudio.azure.containers.tools.targets.1.19.4.nupkg.sha512",
     "C:\\Users\\Amarnath\\.nuget\\packages\\microsoft.visualstudio.debugger.contracts\\17.2.0\\microsoft.visualstudio.debugger.contracts.17.2.0.nupkg.sha512",
     "C:\\Users\\Amarnath\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\7.0.0\\microsoft.visualstudio.web.codegeneration.7.0.0.nupkg.sha512",
     "C:\\Users\\Amarnath\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\7.0.0\\microsoft.visualstudio.web.codegeneration.core.7.0.0.nupkg.sha512",
