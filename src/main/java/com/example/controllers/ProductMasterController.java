@@ -1,54 +1,75 @@
 package com.example.controllers;
+
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entities.ProductMaster;
 import com.example.services.ProductMasterService;
 
 @RestController
-@RequestMapping("/api/products")
-public class ProductMasterController {
-
-    private final ProductMasterService productMasterService;
-
-    public ProductMasterController(ProductMasterService productMasterService) {
-        this.productMasterService = productMasterService;
+@CrossOrigin("*")
+@RequestMapping("/product")
+public class ProductMasterController 
+{
+	@Autowired
+	private ProductMasterService productMasterService;
+	
+	@GetMapping
+	public ResponseEntity<?> getAllProducts(){
+		return new ResponseEntity<> ( productMasterService.getAllProducts(),HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/{productId}")
+	public ResponseEntity<?> getProductId(@PathVariable int productId) {
+		return new ResponseEntity<> (productMasterService.getProductById(productId),HttpStatus.OK);
+	}
+	
+	@GetMapping("/byPriceRange")
+    public ResponseEntity<List<ProductMaster>> getProductsByPriceRange(@RequestParam double minPrice, @RequestParam double maxPrice) {
+        List<ProductMaster> products = productMasterService.getProductsByPriceRange(minPrice, maxPrice);
+        return new ResponseEntity<>(products, HttpStatus.OK);
     }
+	
+	 @GetMapping("/withValidDiscount")
+	    public ResponseEntity<List<ProductMaster>> getProductsWithValidDiscount() {
+	        List<ProductMaster> products = productMasterService.getProductsWithValidDiscount();
+	        return new ResponseEntity<>(products, HttpStatus.OK);
+	    }
+	
+	@PostMapping
+	public ResponseEntity<?> addProduct(@RequestBody ProductMaster product) {
+		return new ResponseEntity<> (productMasterService.addProduct(product),HttpStatus.OK);
+	}
+	
+	@PutMapping("/{productId}")
+	public ResponseEntity<?> updateProduct(@PathVariable int productId,@RequestBody ProductMaster updatedProduct) {
+		return new ResponseEntity<> ( productMasterService.updateProduct(productId,updatedProduct),HttpStatus.OK);
+		
+	}
+	
+	@DeleteMapping("/{productId}")
+      public void deleteproduct(@PathVariable int productId) {
+    	  productMasterService.deleteProduct(productId);
+      }
+	
+	@GetMapping("/getCatId/{Id}")
+	public ResponseEntity<?> findByCatID(@PathVariable int Id) {
+		return new ResponseEntity<> (productMasterService.findByCatID(Id),HttpStatus.OK);
+	}
+	
 
-    @GetMapping
-    public ResponseEntity<List<ProductMaster>> getAllProducts() {
-        List<ProductMaster> products = productMasterService.getAllProducts();
-        return ResponseEntity.ok(products);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<ProductMaster> getProductById(@PathVariable int id) {
-        ProductMaster product = productMasterService.getProductById(id);
-        if (product != null) {
-            return ResponseEntity.ok(product);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @PostMapping
-    public ResponseEntity<ProductMaster> createProduct(@RequestBody ProductMaster product) {
-        ProductMaster savedProduct = productMasterService.saveProduct(product);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable int id) {
-        productMasterService.deleteProduct(id);
-        return ResponseEntity.noContent().build();
-    }
 }

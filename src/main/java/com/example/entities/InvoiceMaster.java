@@ -1,5 +1,6 @@
 package com.example.entities;
 
+import java.sql.Date;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -10,37 +11,36 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Entity
-@Table(name="CategoryMaster")
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class CategoryMaster {
-	
+public class InvoiceMaster {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="CATMASTER_ID")
-	private int catmasterID;
-		
-	private String categoryName;
-		
-	private boolean childflag;
+	@Column(name = "Invoice_id")
+	private int invoiceID;
+	private Date InvoiceDate;
 	
-	private int parentCatID;
-	
-	private String catImgPath;
+	private double totalAmt;
+	private double tax;
+	private double deliveryCharge;
+	private double TotalBill;
+	private int custID;
 	
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="catmasterID")
-	private List<ProductMaster> Product;
+	@JoinColumn(name="invoiceID")
+	private List<InvoiceDetailsMaster> InvoiceDtList;
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="invoiceID")
+	private List<OrderMaster> Olist;
+	
 	
 	
 
-
-	
 }

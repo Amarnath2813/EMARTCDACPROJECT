@@ -9,28 +9,57 @@ import com.example.entities.ConfigMaster;
 import com.example.repositeries.ConfigMasterRepository;
 
 @Service
-public class ConfigMasterServiceImpl implements ConfigMasterService {
+public class ConfigMasterServiceImpl implements ConfigMasterService
+{
+	@Autowired
+	private ConfigMasterRepository configMasterRepository;
 
-    @Autowired
-    private ConfigMasterRepository configMasterRepository;
+	//getall
+	@Override
+	public List<ConfigMaster> getAllConfigs() {
+		
+		return configMasterRepository.findAll();
+	}
 
+	//getbyID
+	@Override
+	public ConfigMaster getConfigById(int configId) {
+		
+		return configMasterRepository.findById(configId).get();
+	}
+
+	//insert
+	@Override
+	public ConfigMaster addConfig(ConfigMaster config) {
+		
+		return configMasterRepository.save(config);
+	}
+
+
+	//update
     @Override
-    public List<ConfigMaster> getAllConfigMasters() {
-        return configMasterRepository.findAll();
+    public ConfigMaster updateConfig(int configId, ConfigMaster updatedConfig) {
+        ConfigMaster existingConfig = configMasterRepository.findById(configId).orElse(null);
+
+        if (existingConfig != null) {
+           
+            existingConfig.setConfigName(updatedConfig.getConfigName());
+
+            
+            return configMasterRepository.save(existingConfig);
+        }
+
+        return null; 
     }
 
-    @Override
-    public ConfigMaster getConfigMasterById(Long id) {
-        return configMasterRepository.findById(id).orElse(null);
-    }
+    //delete
+	@Override
+	public void deleteConfig(int configId) 
+	{
+		ConfigMaster c= configMasterRepository.findById(configId).get();
+		if(c!=null) {
+			configMasterRepository.delete(c);
+		}
+	}
 
-    @Override
-    public ConfigMaster saveConfigMaster(ConfigMaster configMaster) {
-        return configMasterRepository.save(configMaster);
-    }
-
-    @Override
-    public void deleteConfigMasterById(Long id) {
-        configMasterRepository.deleteById(id);
-    }
 }

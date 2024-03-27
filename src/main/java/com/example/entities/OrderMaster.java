@@ -1,15 +1,12 @@
 package com.example.entities;
 
-import java.util.List;
+import java.sql.Date;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -18,25 +15,19 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class ConfigMaster {
-
+public class OrderMaster {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "Config_ID")
-  private int ConfigID;
-  private String ConfigName;
-  
-  @OneToMany(cascade=CascadeType.ALL)
-  @JoinColumn(name="ConfigID")
-  private List<ConfigDetailMaster> config_details;
+	@Column(name="Order_ID")
+	private int OrderID;
+	private String ShippingAdd;
+	private Date OrderDate;
+	private Date Deliverydate;
+	
+	private int CustID;
+	private int invoiceID;
 	
 	
 	
-		 
-  
-
 	
-	
-		  
-		  
-		}
+}
