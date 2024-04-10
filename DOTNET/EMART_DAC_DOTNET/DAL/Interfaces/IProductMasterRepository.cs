@@ -13,5 +13,7 @@ namespace EMART_DAC.DAL.Interfaces
         Task<ActionResult<List<ProductMaster>>> FindProductsByMrpPriceBetween(double minPrice, double maxPrice);
         Task<ActionResult<List<ProductMaster>>> FindProductsWithValidDiscount();
         Task<ActionResult<List<ProductMaster>>> FindProductsByCatID(int catId);
+        Task<ActionResult<IEnumerable<ProductMaster>>?> GetProductsMaxDiscount();
+
     }
 }

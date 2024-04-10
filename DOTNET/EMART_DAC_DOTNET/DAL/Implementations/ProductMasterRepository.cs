@@ -120,5 +120,12 @@ namespace EMART_DAC.DAL.Implementations
             return products;
         }
 
+        public async Task<ActionResult<IEnumerable<ProductMaster>>?> GetProductsMaxDiscount()
+        {
+            var topFourProducts = await context.ProductMasters.OrderByDescending(p => p.Disc).Take(4).ToListAsync();
+            return topFourProducts;
+        }
+
+
     }
 }

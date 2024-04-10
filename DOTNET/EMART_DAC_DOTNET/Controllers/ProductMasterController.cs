@@ -121,5 +121,12 @@ namespace EMART_DAC.Controllers
 
             return products;
         }
+
+        [HttpGet("discounted")]
+        public async Task<ActionResult<IEnumerable<ProductMaster>>?> GetProductMaxDiscount()
+        {
+            return await _repository.GetProductsMaxDiscount();
+        }
+
     }
 }

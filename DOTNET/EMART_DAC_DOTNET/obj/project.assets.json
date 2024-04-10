@@ -11737,11 +11737,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\EMARTCDACPROJECT\\DOTNET\\EMART_DAC_DOTNET\\EMART_DAC.csproj",
+      "projectUniqueName": "E:\\EMARTFULLFLEDGEDCOMMAND\\MYDONETFULLANDFINAL\\EMART_DAC_DOTNET\\EMART_DAC.csproj",
       "projectName": "EMART_DAC",
-      "projectPath": "E:\\EMARTCDACPROJECT\\DOTNET\\EMART_DAC_DOTNET\\EMART_DAC.csproj",
+      "projectPath": "E:\\EMARTFULLFLEDGEDCOMMAND\\MYDONETFULLANDFINAL\\EMART_DAC_DOTNET\\EMART_DAC.csproj",
       "packagesPath": "C:\\Users\\Amarnath\\.nuget\\packages\\",
-      "outputPath": "E:\\EMARTCDACPROJECT\\DOTNET\\EMART_DAC_DOTNET\\obj\\",
+      "outputPath": "E:\\EMARTFULLFLEDGEDCOMMAND\\MYDONETFULLANDFINAL\\EMART_DAC_DOTNET\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
