@@ -88,8 +88,7 @@ label {
 }
 
 .login-background {
-  background-image: url('/public/Images/document.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
+  background-image: url('/public/Images/Login.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
   background-size: cover; /* Cover the entire element with the background image */
-  background-repeat: no-repeat; /* Do not repeat the background image */
   background-position: center; /* Center the background image */
 }

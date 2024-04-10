@@ -13,6 +13,7 @@ import Product from './Component/Product';
 import CombinedCartPage from './Component/CombinedCartPage';
 import CategoriesPage from './Component/CategoriesPage';
 import OrderPage from './Component/Orderpage';
+import './Component/globalStyles.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>

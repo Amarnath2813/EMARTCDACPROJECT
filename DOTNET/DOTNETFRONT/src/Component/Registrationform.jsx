@@ -140,32 +140,32 @@ const Registrationform = () => {
           value={formState.confirm_password}
           onChange={handleChange}
         />
+  <label htmlFor="cardHolder" style={{ marginBottom: '0' }}>Are you a CardHolder</label>
+  <input
+    id="cardHolder"
+    name="cardHolder"
+    type="checkbox"
+    checked={formState.cardHolder}
+    onChange={handleCheckboxChange}
+    style={{ marginup: '2px' }} /* Add marginRight to give spacing between checkbox and label */
+  />
 
-        <label htmlFor="cardHolder">Are you a CardHolder</label>
-        <input
-          id="cardHolder"
-          name="cardHolder"
-          type="checkbox"
-          checked={formState.cardHolder}
-          onChange={handleCheckboxChange}
-        />
 
-        <div className="d-flex justify-content-between">
-          <button
-            className="btnRegister"
-            type="submit"
-            disabled={isSubmitting}
-          >
-            Register
-          </button>
-          <button className="btnRegister" onClick={handleLogin}>
-            <p>Already have an account then</p>
-            Login
-          </button>
-          <button className="btnRegister" type="button" onClick={handleClear}>
-            Clear
-          </button>
-        </div>
+<br></br>
+<div className="d-flex justify-content-between">
+  <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
+    Register
+  </button>
+  <div className="d-flex align-items-center">
+    <p className="m-0">Already have an account?</p>
+    <button className="btn btn-link" onClick={handleLogin}>
+      Login
+    </button>
+  </div>
+  <button className="btn btn-secondary" type="button" onClick={handleClear}>
+    Clear
+  </button>
+</div>
       </form>
     </div>
   );

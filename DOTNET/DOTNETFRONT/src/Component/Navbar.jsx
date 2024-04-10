@@ -44,7 +44,7 @@ const CustomNavbar = () => {
   return (
     <BootstrapNavbar expand="lg" variant="dark" className="navbar-custom">
       <Link to="/home" className="navbar-brand">
-        <img src="/Logo.ico" alt="Logo" style={{ width: '30px', height: 'auto', marginRight: '1rem' }} />
+        <img src="/Logo1.jpg" alt="Logo" style={{ width: '80px', height: 'auto', marginRight: '1rem' }} />
       </Link>
 
       <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />

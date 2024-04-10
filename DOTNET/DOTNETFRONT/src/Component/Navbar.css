@@ -1,5 +1,5 @@
 .navbar-custom {
-    background-color: #343a40;
+    background-color: #5bffe9;
     padding: 1rem 2rem;
     border-bottom: 2px solid #fcfcfc;
     display: flex; /* Use flexbox */
@@ -8,7 +8,7 @@
 }
 
 .navbar-custom .nav-link {
-    color: #00c5fb; /* Change to white */
+    color: black; /* Change to white */
     font-weight: 700;
 }
 

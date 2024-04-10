@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import "./Login.css"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ sessionStorage.setItem('custId',productData);
 sessionStorage.setItem('islogin','true');
 
 console.log('Product Data:', productData);
-      alert('Login Successful');
+      alert('Emart Says : Login Successful');
       navigate('/Home');
     } catch (err) {
       console.log(err);
@@ -67,7 +68,6 @@ console.log('Product Data:', productData);
       <div className="col-md-6">
         <Card>
           <Card.Body>
-            <h3 className="card-title text-center">Sign In</h3>
             <div className="mb-3">
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">

@@ -54,10 +54,10 @@ const ProductCard = ({
           if (!response.ok) {
             throw new Error("Cart data couldn't be sent.");
           }
-          alert("Cart data sent successfully.");
+          alert("Emart Says : Cart data sent successfully.");
         })
         .catch((error) => {
-          alert("Item Already added in the cart");
+          alert("Emart Says : Item Already added in the cart");
           
         });
     }
@@ -74,7 +74,7 @@ const ProductCard = ({
         <Card style={{ width: '18rem', marginBottom: '20px' }}>
           <Card.Img variant="top" src={imgpath} alt={prodName} />
           <Card.Body>
-            <Card.Title>{prodName}</Card.Title>
+           
             {showLongDesc ? (
               <Card.Text>{prodLongDesc}</Card.Text>
             ) : (

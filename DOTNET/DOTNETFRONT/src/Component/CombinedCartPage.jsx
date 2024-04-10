@@ -234,7 +234,7 @@ const CombinedCartPage = () => {
     
     
     if (!isCardHolder) {
-      window.alert("Only cardholders can redeem points");
+      window.alert("Emart Says : Only cardholders can redeem points");
       e.target.checked = false;
       return;
     }
@@ -249,7 +249,7 @@ const CombinedCartPage = () => {
         setTotalAmount(totalAmount - prodPoints); // Deduct points from offerPrice
         // Update customer points
       } else {
-        window.alert("You don't have enough points");
+        window.alert("Emart Says : You don't have enough points");
         e.target.checked = false;
       }
 
